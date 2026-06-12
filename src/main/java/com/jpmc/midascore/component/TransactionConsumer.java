@@ -18,7 +18,7 @@ public class TransactionConsumer {
         this.databaseConduit = databaseConduit;
     }
 
-    @KafkaListener(topics = "${general.kafka-topic}")
+    @KafkaListener(topics = "${general.kafka-topic}", groupId = "midas-core")
     public void listen(Transaction transaction) {
         logger.info("Received transaction: {}", transaction);
 

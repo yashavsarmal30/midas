@@ -12,7 +12,7 @@ import org.springframework.test.annotation.DirtiesContext;
 
 @SpringBootTest
 @DirtiesContext
-@EmbeddedKafka(partitions = 1, brokerProperties = {"listeners=PLAINTEXT://localhost:9092", "port=9092"})
+@EmbeddedKafka(partitions = 1, brokerProperties = { "listeners=PLAINTEXT://localhost:9092", "port=9092" })
 public class TaskThreeTests {
     static final Logger logger = LoggerFactory.getLogger(TaskThreeTests.class);
 
@@ -40,14 +40,14 @@ public class TaskThreeTests {
         logger.info("----------------------------------------------------------");
         logger.info("----------------------------------------------------------");
         logger.info("----------------------------------------------------------");
-        
+
         for (long i = 1; i <= 11; i++) {
             UserRecord ur = databaseConduit.findUserById(i);
             if (ur != null) {
                 logger.info("User ID {}: {} - Balance: {}", ur.getId(), ur.getName(), ur.getBalance());
             }
         }
-        
+
         logger.info("----------------------------------------------------------");
     }
 }
